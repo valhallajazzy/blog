@@ -64,6 +64,7 @@ def post_detail(request, slug):
     context = {
         'post': serialized_post,
     }
+    print(context['post']['comments'][0])
     return render(request, 'blog-details.html', context)
 
 
