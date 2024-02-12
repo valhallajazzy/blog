@@ -22,21 +22,21 @@
         <div class="container">
           <div class="d-flex">
             {% for post in most_popular_posts %}
-                <div class="flex-fill" style="margin-right: 30px;">
-                  <div class="card blog__slide text-center">
-                    <div class="blog__slide__img">
-                      {% if post.image_url %}
-                        <img class="img-fluid" src="{{ post.image_url }}" alt="image of the popular post">
-                      {% else %}
-                        <img class="img-fluid" src="static/img/banner/blog.png" alt="image of the popular post">
-                      {% endif %}
-                    </div>
-                    <div class="blog__slide__content">
-                      <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
-                      <p>{{ post.published_at }}</p>
-                    </div>
+              <div class="flex-fill" style="margin-right: 30px;">
+                <div class="card blog__slide text-center">
+                  <div class="blog__slide__img">
+                    {% if post.image_url %}
+                      <img class="img-fluid" src="{{ post.image_url }}" alt="image of the popular post">
+                    {% else %}
+                      <img class="img-fluid" src="static/img/banner/blog.png" alt="image of the popular post">
+                    {% endif %}
+                  </div>
+                  <div class="blog__slide__content">
+                    <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
+                    <p>{{ post.published_at }}</p>
                   </div>
                 </div>
+              </div>
             {% endfor %}
           </div>
         </div>
@@ -49,25 +49,25 @@
           <div class="row">
             <div class="col-lg-8">
               {% for post in fresh_posts%}
-                  <div class="single-recent-blog-post">
-                    <div class="thumb">
-                      {% if post.image_url %}
+                <div class="single-recent-blog-post">
+                  <div class="thumb">
+                    {% if post.image_url %}
                       <img class="img-fluid" src="{{ post.image_url }}" alt="image of the fresh post">
-                      {% else %}
+                    {% else %}
                       <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="image of the fresh post">
-                      {% endif %}
+                    {% endif %}
                       <ul class="thumb-info" style="max-width: 550px;">
                         <li><a href="#"><i class="ti-user"></i>{{ post.author }}</a></li>
                         <li><a href="#"><i class="ti-notepad"></i>{{ post.published_at }}</a></li>
                         <li><a href="#"><i class="ti-themify-favicon"></i>{{ post.comments_amount }} Comments</a></li>
                       </ul>
-                    </div>
+                  </div>
                     <div class="details mt-20">
                       <h3>{{ post.title }}</h3>
                       <p>{{ post.text|truncatechars_html:200 }}</p>
                       <a class="button" href="{% url 'post_detail' post.slug %}">Read More <i class="ti-arrow-right"></i></a>
                     </div>
-                  </div>
+                </div>
               {% endfor %}
             </div>
 
